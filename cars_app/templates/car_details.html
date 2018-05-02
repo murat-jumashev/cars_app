@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        {{ car }}
+    </div>
+    <div style="display: flex">
+        <form>
+            <button formaction="{% url "cars_app:car_edit" pk=car.pk %}">
+                Edit
+            </button>
+        </form>
+        <form action="{% url "cars_app:car_delete" pk=car.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+</body>
+</html>
